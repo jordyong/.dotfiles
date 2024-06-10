@@ -12,6 +12,12 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Path
+path+=("${HOME}/.local/bin")
+path+=("${HOME}/opt/nvim-linux64/bin")
+path+=("${HOME}/opt")
+export PATH
+
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -59,10 +65,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
-
-path+=("${HOME}/.local/bin")
-path+=("/opt/nvim-linux64/bin")
-export PATH
 
 # Shell integrations
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
