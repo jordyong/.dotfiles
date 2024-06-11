@@ -3,27 +3,45 @@
 # Requirements
 Ensure it is installed
 
-Git
-
-Stow
+- Git
+- Stow
 
 # Installation
 Clone dotfiles repo into $HOME directory using Git
+```
 $ git clone git@github.com/jordyboy/dotfiles.git
+```
+Go into dotfiles and run the install script
 
-then use GNU stow to create symlinks
-$ cd dotfiles
-$ stow .
-
+```
+$ cd .dotfiles
+$ ./install
+```
 # Dependencies
 
 ## Nvim
-- neovim
-- ripgrep
+- Neovim
+```
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64-tar.gz
+sudo tar -C opt -xzf nvim-linux64.tar.gz
+```
+- ripgrep [telescope]
+```
+sudo apt install ripgrep
+```
 
 ## TMUX
-- tmux
-- tpm
+- Install tmux
+```
+sudo apt install tmux
+```
+- Clone TPM:
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 ## oh-my-posh
-- oh-my-posh
+- Install oh-my-posh
+```
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/opt
+```
