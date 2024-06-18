@@ -22,7 +22,7 @@ $ ./install
 ## Nvim
 - Neovim
 ```
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64-tar.gz
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo tar -C opt -xzf nvim-linux64.tar.gz
 ```
 - ripgrep [telescope]
@@ -39,7 +39,15 @@ sudo apt install tmux
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-
+- Install FZF:
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+- Install zoxide:
+```
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+```
 ## oh-my-posh
 - Install oh-my-posh
 ```
