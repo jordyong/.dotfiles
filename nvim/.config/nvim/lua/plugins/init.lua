@@ -22,7 +22,9 @@ return {
   		ensure_installed = {
   			"lua-language-server", "stylua",
   			"html-lsp", "css-lsp" , "prettier",
-        "clangd", "clang-format"
+        "clangd", "clang-format",
+        "gopls", "golines",
+
   		},
   	},
   },
@@ -33,8 +35,20 @@ return {
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
        "html", "css",
-        "cpp", "c"
+        "cpp", "c",
+        "go",
   		},
   	},
+  },
+
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
   },
 }
