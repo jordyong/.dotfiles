@@ -3,8 +3,8 @@ local options = {
 		lua = { "stylua" },
 		css = { "prettier" },
 		html = { "prettier" },
-		cpp = { "clang-format" },
-		c = { "clang-format" },
+		-- cpp = { "clang-format" },
+		-- c = { "clang-format" },
 		go = { "gofmt", "golines" },
 	},
 

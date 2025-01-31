@@ -12,8 +12,10 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+export GOPATH=$HOME/go
 # Path
 path+=("${HOME}/.local/bin")
+path+=("${HOME}/.local/scripts")
 path+=("/usr/local/go/bin/")
 path+=("${GOPATH}/bin")
 path+=("/opt/nvim-linux64/bin")
@@ -42,6 +44,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/custom.toml)"
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey -s ^f "tmux_sessionizer\n"
 
 # History
 HISTSIZE=5000
