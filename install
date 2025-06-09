@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
-DEPENDENCIES=("build-essential" "git" "curl" "stow" "ripgrep" "tmux" "lazygit")
+DEPENDENCIES="build-essential","git","curl","stow","ripgrep","tmux","unzip"
 
-for dep in $(echo $DEPENDENCIES)
+for dep in $(echo $DEPENDENCIES | sed "s/,/ /g")
 do
+  echo $dep
   sudo apt install $dep
 done
 
@@ -25,10 +26,13 @@ for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 popd
 
 INSTALL_DIR="~/.local/bin"
+mkdir -p $INSTALL_DIR
+
 read -p "Installing Neovim"
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo tar -C $INSTALL_DIR -xzf nvim-linux64.tar.gz
-rm nvim-linux64.tar.gz
+NEOVIM_FILE="nvim-linux-x86_64.tar.gz"
+curl -LO https://github.com/neovim/neovim/releases/latest/download/$NEOVIM_FILE
+sudo tar -C $INSTALL_DIR -xzf $NEOVIM_FILE
+rm $NEOVIM_FILE
 
 read -p "Installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -41,7 +45,7 @@ read -p "Installing zoxide"
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 read -p "Installing oh-my-posh"
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d $INSTALL_DIR
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d $INSTALL_DIR
 
 read -p "Installing Lazygit"
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

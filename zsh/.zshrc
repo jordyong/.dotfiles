@@ -18,7 +18,7 @@ path+=("${HOME}/.local/bin")
 path+=("${HOME}/.local/scripts")
 path+=("/usr/local/go/bin/")
 path+=("${GOPATH}/bin")
-path+=("/opt/nvim-linux64/bin")
+path+=("${HOME}/.local/bin/nvim-linux-x86_64/bin")
 path+=("/opt")
 export PATH
 
