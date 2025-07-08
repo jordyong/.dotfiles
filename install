@@ -9,7 +9,7 @@ do
 done
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="nvim,tmux,zsh,ohmyposh,lazygit"
+    STOW_FOLDERS="nvim,tmux,zsh,ohmyposh,lazygit,bin"
 fi
 
 if [[ -z $DOTFILES ]]; then
